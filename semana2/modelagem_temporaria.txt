@@ -4,17 +4,8 @@ Table FatoVenda {
   ID_ship_date date
   ID_ship_mode varchar
   Customer_ID int
-  Customer_Name varchar
-  Segment varchar
-  Country varchar
-  City varchar
-  State varchar
-  Postal_Code int
-  Region varchar
   Product_ID varchar
-  Category varchar
-  Sub_Category varchar
-  Product_Name varchar
+  Localizacao_ID int
   Sales numeric
 
   Note: "Fato contendo a receita por pedido"
@@ -33,10 +24,32 @@ Table DimShipMode {
   Nome_ShipMode varchar
 }
 
+Table DimCliente {
+  Customer_ID int [PK]
+  Customer_Name varchar
+  Segment varchar
+}
 
+Table DimProduto {
+  Product_ID varchar [PK]
+  Product_Name varchar
+  Sub_Category varchar
+  Category varchar
+}
 
-
+Table DimLocalizacao {
+  Localizacao_ID int [PK]
+  Country varchar
+  City varchar
+  State varchar
+  Postal_Code int
+  Region varchar
+}
 
 Ref: FatoVenda.ID_data > DimData.ID_data
 Ref: FatoVenda.ID_ship_date > DimData.ID_data
 Ref: FatoVenda.ID_ship_mode > DimShipMode.ID_ship_mode
+Ref: FatoVenda.Customer_ID > DimCliente.Customer_ID
+Ref: FatoVenda.Product_ID > DimProduto.Product_ID
+Ref: FatoVenda.Localizacao_ID > DimLocalizacao.Localizacao_ID
+
