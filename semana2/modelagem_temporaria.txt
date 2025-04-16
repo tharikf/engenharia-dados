@@ -25,7 +25,7 @@ Table DimShipMode {
 }
 
 Table DimCliente {
-  Customer_ID int [PK]
+  Customer_ID varchar [PK]
   Customer_Name varchar
   Segment varchar
 }
@@ -38,11 +38,11 @@ Table DimProduto {
 }
 
 Table DimLocalizacao {
-  Localizacao_ID int [PK]
+  Localizacao_ID serial [PK]
   Country varchar
   City varchar
   State varchar
-  Postal_Code int
+  Postal_Code varchar
   Region varchar
 }
 
