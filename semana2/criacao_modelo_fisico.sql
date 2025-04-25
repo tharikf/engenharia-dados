@@ -1,5 +1,10 @@
-
-
+/*
+DROP TABLE IF EXISTS fato_venda;
+DROP TABLE IF EXISTS dim_cliente;
+DROP TABLE IF EXISTS dim_data;
+DROP TABLE IF EXISTS dim_localizacao;
+DROP TABLE IF EXISTS dim_produto;
+*/
 
 -- Implementação do modelo físico
 
@@ -20,7 +25,7 @@ CREATE TABLE dim_cliente (
 
 CREATE TABLE dim_produto (
 	product_id VARCHAR(50) PRIMARY KEY,
-	product_name VARCHAR(100),
+	product_name VARCHAR(200),
 	sub_category VARCHAR(100),
 	category VARCHAR(100)
 );

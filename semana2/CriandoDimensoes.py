@@ -2,9 +2,6 @@
 
 import pandas as pd
 
-dados_brutos_dimensoes = pd.read_csv('train.csv')
-
-
 # Criando as dimensões
 def criando_dimensoes(dados):
 
@@ -40,6 +37,4 @@ def criando_dimensoes(dados):
 
     return df_clientes, df_produtos, df_localizacao, df_data
 
-
-dimClientes, dimProdutos, dimLocalizacao, dimData = criando_dimensoes(dados_brutos_dimensoes)
 
