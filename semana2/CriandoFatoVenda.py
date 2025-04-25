@@ -1,7 +1,4 @@
 import pandas as pd
-#from CriandoDimensoes import criando_dimensoes
-
-#dados = pd.read_csv('train.csv')
 
 def criando_fato_venda(dataframe, dim_localizacao, dim_data):
 
@@ -38,6 +35,4 @@ def criando_fato_venda(dataframe, dim_localizacao, dim_data):
 
     return df_fato
 
-#dimClientes, dimProdutos, dimLocalizacao, dimData = criando_dimensoes(dados)
-#teste = criando_fato_venda(dados, dimLocalizacao, dimData)
-#print(teste.info())
+
