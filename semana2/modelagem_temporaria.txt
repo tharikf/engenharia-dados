@@ -2,7 +2,7 @@ Table FatoVenda {
   ID_order serial [PK]
   ID_data date
   ID_ship_date date
-  ID_ship_mode varchar
+  ship_mode varchar
   Customer_ID int
   Product_ID varchar
   Localizacao_ID int
@@ -17,11 +17,6 @@ Table DimData {
   Mes int
   Ano int
   Dia_Semana varchar
-}
-
-Table DimShipMode {
-  ID_ship_mode varchar [PK]
-  Nome_ShipMode varchar
 }
 
 Table DimCliente {
@@ -48,7 +43,6 @@ Table DimLocalizacao {
 
 Ref: FatoVenda.ID_data > DimData.ID_data
 Ref: FatoVenda.ID_ship_date > DimData.ID_data
-Ref: FatoVenda.ID_ship_mode > DimShipMode.ID_ship_mode
 Ref: FatoVenda.Customer_ID > DimCliente.Customer_ID
 Ref: FatoVenda.Product_ID > DimProduto.Product_ID
 Ref: FatoVenda.Localizacao_ID > DimLocalizacao.Localizacao_ID

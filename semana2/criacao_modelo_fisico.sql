@@ -1,4 +1,6 @@
 
+
+
 -- Implementação do modelo físico
 
 CREATE TABLE dim_data (
@@ -7,11 +9,6 @@ CREATE TABLE dim_data (
 	mes INT,
 	ano INT,
 	dia_semana VARCHAR(20)
-);
-
-CREATE TABLE dim_ship_mode (
-	ship_mode_id VARCHAR(50) PRIMARY KEY,
-	nome_ship_mode VARCHAR(80)
 );
 
 
@@ -50,7 +47,7 @@ CREATE TABLE fato_venda (
 	order_id VARCHAR(50),
 	order_date DATE,
 	ship_date DATE,
-	ship_mode_id VARCHAR(50),
+	ship_mode VARCHAR(50),
 	customer_id VARCHAR(50),
     product_id VARCHAR(50),
   	localizacao_id INT,
@@ -58,7 +55,6 @@ CREATE TABLE fato_venda (
 
 	FOREIGN KEY (order_date) REFERENCES dim_data(data_id),
 	FOREIGN KEY (ship_date) REFERENCES dim_data(data_id),
-	FOREIGN KEY (ship_mode_id) REFERENCES dim_ship_mode(ship_mode_id),
 	FOREIGN KEY (customer_id) REFERENCES dim_cliente(customer_id),
 	FOREIGN KEY (product_id) REFERENCES dim_produto(product_id),
 	FOREIGN KEY (localizacao_id) REFERENCES dim_localizacao(localizacao_id)

@@ -1,10 +1,8 @@
 
 
 import pandas as pd
-import sqlalchemy
-import psycopg2
 
-dados_brutos = pd.read_csv('train.csv')
+dados_brutos_dimensoes = pd.read_csv('train.csv')
 
 
 # Criando as dimensões
@@ -25,6 +23,7 @@ def criando_dimensoes(dados):
 
     # Dimensao localização -> Selecionando colunas e selecionando valores únicos
     df_localizacao = df[['country', 'state', 'postal_code', 'region']].drop_duplicates().reset_index(drop=True)
+    df_localizacao['postal_code'] = df_localizacao['postal_code'].fillna('00000')
     df_localizacao['localizacao_id'] = df_localizacao.index + 1
     df_localizacao = df_localizacao[['localizacao_id', 'country', 'state', 'postal_code', 'region']].sort_values(by = 'localizacao_id')
 
@@ -42,6 +41,5 @@ def criando_dimensoes(dados):
     return df_clientes, df_produtos, df_localizacao, df_data
 
 
-dimClientes, dimProdutos, dimLocalizacao, dimData = criando_dimensoes(dados_brutos)
-
+dimClientes, dimProdutos, dimLocalizacao, dimData = criando_dimensoes(dados_brutos_dimensoes)
 
